@@ -27,7 +27,6 @@ module Fluent
           flattened[key] = value
           tag_with_key = [tag.clone, key].join('.')
           filter_record(tag_with_keypath, time, value)
-          $stderr.puts "[#{tag_with_key}] #{key} => #{value}"
 
           Engine.emit(tag_with_key, time, value)
         end
