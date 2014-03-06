@@ -26,10 +26,10 @@ module Fluent
           flattened = {}
           flattened[key] = value
           tag_with_key = [tag.clone, key].join('.')
-          filter_record(tag_with_key, time, value)
+          filter_record(tag_with_key, time, flattened)
           #$stderr.puts "out_flatten_chadin: #{tag_with_key}:  #{value}"
 
-          Engine.emit(tag_with_key, time, value)
+          Engine.emit(tag_with_key, time, flattened)
         end
       end
 
